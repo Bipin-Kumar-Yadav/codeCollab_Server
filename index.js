@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 const server = http.createServer(app);
 const auth = require('./routes/auth.route')
 const profile = require('./routes/profile.route')
+const community = require('./routes/community.routes')
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -99,6 +100,7 @@ server.listen(PORT, () => {
 
 app.use("/api/auth",auth);
 app.use("/api/profile",profile)
+app.use("/api/community",community)
 
 app.get("/", (req, res) => {
   res.send("hi");
